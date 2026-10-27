@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Espacio Ceniza · Stand up, microteatro y coctelería en Villa Luro</title>
+<meta name="description" content="Espacio Ceniza: stand up, microteatro, stream y barra de coctelería en Villa Luro, CABA. Reservas por WhatsApp y agenda de shows.">
+<meta name="theme-color" content="#141414">
+<script>
+/* Entrada suave del logo y el contenido, salvo que el celular pida "reducir movimiento" */
+try{ if(!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('intro'); }catch(e){}
+</script>
+
+<link rel="canonical" href="https://espacioceniza.com.ar/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Espacio Ceniza">
+<meta property="og:description" content="Stand up, microteatro, stream y coctelería en Villa Luro.">
+<meta property="og:image" content="https://res.cloudinary.com/eekglpse/image/upload/w_1200,h_630,c_fill,q_auto,f_jpg/v1792776663/PORTADA.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://espacioceniza.com.ar/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://res.cloudinary.com/eekglpse/image/upload/w_1200,h_630,c_fill,q_auto,f_jpg/v1792776663/PORTADA.jpg">
+
+<link rel="icon" href="https://res.cloudinary.com/eekglpse/image/upload/v1792543357/favicon-fondo-negro.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/eekglpse/image/upload/w_180,h_180,c_pad,b_rgb:141414,f_png/v1792543357/favicon-fondo-negro.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://docs.google.com">
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BarOrPub",
+  "name":"Espacio Ceniza",
+  "url":"https://espacioceniza.com.ar/",
+  "hasMenu":"https://espacioceniza.com.ar/menu/ceniza/",
+  "description":"Stand up, microteatro, stream y barra de coctelería en Villa Luro. También se alquila para cumpleaños y eventos privados.",
+  "address":{"@type":"PostalAddress","addressLocality":"Villa Luro","addressRegion":"CABA","addressCountry":"AR"},
+  "telephone":"+54 9 11 5742-4161",
+  "servesCuisine":"Coctelería",
+  "image":"https://res.cloudinary.com/eekglpse/image/upload/v1792776663/PORTADA.jpg",
+  "sameAs":["https://instagram.com/espacio_ceniza","https://linktr.ee/espacioceniza"]
+}
+</script>
+
+<style>
+:root{
+  --ink:#141414;
+  --white:#FFFFFF;
+  --soft:rgba(255,255,255,.78);   /* texto de lectura sobre el fondo oscuro */
+  --orange:#FF6537;               /* naranja de Ceniza */
+  --amber:#FEA500;                /* amarillo de Ceniza */
+  --a1:var(--orange);             /* acentos de los íconos */
+  --a2:var(--amber);
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html,body{max-width:100vw;overflow-x:hidden}
+body{
+  min-height:100svh;background:var(--ink);color:var(--soft);
+  font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+}
+::selection{background:var(--orange);color:var(--ink)}
+
+/* ---------- FOGÓN DE FONDO ---------- */
+#ash{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0;transition:opacity 900ms var(--ease-out)}
+#ash.on{opacity:1}
+.embers{
+  position:fixed;left:-10%;right:-10%;bottom:-6%;height:42%;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(255,101,55,.45),rgba(200,40,30,.18) 42%,transparent 72%);
+  animation:embers 4.5s ease-in-out infinite;
+}
+@keyframes embers{0%,100%{opacity:.75}50%{opacity:1}}
+
+/* ---------- CONTENIDO ---------- */
+.page{
+  position:relative;z-index:1;min-height:100svh;
+  max-width:520px;margin:0 auto;
+  padding:calc(40px + env(safe-area-inset-top)) 22px calc(36px + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+
+/* logo */
+.brand{position:relative;width:min(70%,280px);aspect-ratio:2.4/1;margin-bottom:28px}
+.brand .logo{position:absolute;left:50%;top:50%;width:100%;height:auto;transform:translate(-50%,-50%)}
+
+/* entrada: primero el logo, después el resto en cascada */
+.intro .brand .logo{opacity:0}
+.intro.play .brand .logo{animation:logo-in 700ms var(--ease-out) both}
+@keyframes logo-in{
+  from{opacity:0;transform:translate(-50%,-50%) translateY(8px) scale(.97)}
+  to  {opacity:1;transform:translate(-50%,-50%)}
+}
+
+/* el resto aparece cuando ya salió el logo */
+.rise{opacity:1}
+.intro .rise{opacity:0}
+.intro.play .rise{animation:rise 600ms var(--ease-out) both}
+.intro.play .r1{animation-delay:350ms}
+.intro.play .r2{animation-delay:420ms}
+.intro.play .r3{animation-delay:490ms}
+.intro.play .r4{animation-delay:560ms}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* la verdadera dueña */
+.cat{margin:4px 0 24px;display:flex;justify-content:center}
+.cat img{width:150px;height:auto;display:block}
+
+.badge-wip{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--orange);
+}
+.badge-wip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 0 0 rgba(255,101,55,.6);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,101,55,.55)}70%,100%{box-shadow:0 0 0 9px rgba(255,101,55,0)}}
+h1{
+  font-family:'Oswald',sans-serif;font-weight:600;color:var(--white);
+  font-size:clamp(28px,8vw,40px);line-height:1.08;letter-spacing:.01em;text-transform:uppercase;
+  margin-bottom:14px;text-wrap:balance;
+}
+.lead{font-size:16px;line-height:1.6;max-width:42ch;margin:0 auto 30px;text-wrap:pretty}
+
+/* botones */
+.btns{display:flex;flex-direction:column;gap:12px;width:100%;max-width:360px;margin:0 auto}
+.btn{
+  display:flex;align-items:center;gap:14px;min-height:60px;padding:10px 18px;
+  border-radius:9999px;border:1.5px solid rgba(255,255,255,.35);
+  color:var(--white);text-decoration:none;text-align:left;
+  background:rgba(20,20,20,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:transform 160ms var(--ease-out),background-color 200ms ease,border-color 200ms ease;
+}
+.btn:active{transform:scale(.97)}
+.btn svg{width:26px;height:26px;flex:0 0 auto}
+.btn b{display:block;font-family:'Oswald',sans-serif;font-weight:500;font-size:17px;letter-spacing:.04em;text-transform:uppercase;line-height:1.2}
+.btn small{display:block;font-size:13px;color:rgba(255,255,255,.62);line-height:1.3}
+/* el primero es el principal: naranja lleno, tinta oscura */
+.btn:first-child{background:var(--orange);border-color:var(--orange);color:var(--ink);--a1:var(--ink);--a2:var(--ink)}
+.btn:first-child small{color:rgba(20,20,20,.72)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{border-color:var(--white)}
+  .btn:first-child:hover{background:#FF7A52;border-color:#FF7A52}
+}
+.ico .f1{fill:var(--a1);stroke:none}
+.ico .f2{fill:var(--a2);stroke:none}
+.ico .s1{stroke:var(--a1)}
+.ico .s2{stroke:var(--a2)}
+
+.foot{margin-top:auto;padding-top:40px;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.45);
+  display:flex;flex-direction:column;align-items:center;gap:10px}
+.credit{display:flex;align-items:center;gap:8px}
+.credit img{height:13px;width:auto;display:block;opacity:.9}
+
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  #ash{display:none}
+  .embers,.badge-wip::before{animation:none}
+  .brand .logo{animation:fade 300ms ease both}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="ash" aria-hidden="true"></canvas>
+<div class="embers" aria-hidden="true"></div>
+
+<main class="page">
+  <div class="brand">
+    <img class="logo" id="logo" alt="Espacio Ceniza" fetchpriority="high"
+         src="https://res.cloudinary.com/eekglpse/image/upload/w_600,q_auto,f_auto/v1792543356/logo-negativo-margen.png">
+  </div>
+
+  <figure class="cat rise r1" id="cat">
+    <img id="catImg" src="img/gato.png" alt="El gato de Ceniza, la verdadera dueña" width="150" height="124">
+  </figure>
+
+  <div class="rise r2">
+    <p class="badge-wip">En construcción</p>
+    <!-- Textos de respaldo: Google los lee y se ven si la planilla no responde -->
+    <h1 id="titulo">La verdadera dueña todavía no aprobó la web</h1>
+    <p class="lead" id="texto">Estamos armando la página de Ceniza y ella revisa cada detalle. Mientras tanto, el bar, las funciones y los tragos siguen como siempre.</p>
+  </div>
+
+  <nav class="btns rise r3" id="btns" aria-label="Contacto">
+    <a class="btn" href="https://wa.me/5491157424161?text=Hola%20Ceniza%2C%20quiero%20reservar" target="_blank" rel="noopener"><b>Reservá por WhatsApp</b></a>
+    <a class="btn" href="https://linktr.ee/espacioceniza" target="_blank" rel="noopener"><b>Agenda y shows</b></a>
+    <a class="btn" href="https://instagram.com/espacio_ceniza" target="_blank" rel="noopener"><b>Instagram</b></a>
+  </nav>
+
+  <footer class="foot rise r4">
+    <span>Villa Luro · Ciudad de Buenos Aires</span>
+    <span class="credit"><span>Web realizada por</span><img alt="FÁRA" loading="lazy" height="13" src="https://res.cloudinary.com/eekglpse/image/upload/e_trim/h_66,f_png,q_auto/v1792547783/fara_marca_agua_logotipo_crema.svg"></span>
+  </footer>
+</main>
+
+<script>
+/* =========================================================
+   CONFIGURACIÓN
+   Esta página lee la planilla "CEN · Landing".
+   Para que funcione, la planilla tiene que estar compartida
+   como "Cualquier persona con el enlace: Lector".
+   ========================================================= */
+const SHEET_ID = '1tQRIqG_XmDIsW2eLSiiRx9bEolFyDnfgWrWtOi9QrFw';
+const CACHE_KEY = 'ceniza-landing-v1';
+/* Cuando exista la landing, pasar a true: ahí la casilla "En construcción" de la planilla
+   decide qué se ve. Mientras sea false, esta página muestra siempre el aviso. */
+const LANDING_LISTA = false;
+
+const IMG_DEFAULT = {
+  logo:'https://res.cloudinary.com/eekglpse/image/upload/v1792543356/logo-negativo-margen.png',
+  gato:'img/gato.png'
+};
+
+/* ---------- ÍCONOS DE LOS BOTONES (estilo Ceniza: línea gruesa + detalles naranja/amarillo) ---------- */
+const svg = inner => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+const ICONS = {
+  whatsapp: svg('<path d="M4.5 19.5l1.2-3.6A8.3 8.3 0 1 1 9 19.1z"/><path class="s2" d="M9.2 8.6c.3 2.6 2.1 4.7 4.8 5.4l1.1-1.2 1.7.8-.4 1.6c-3.9.2-7.6-3.3-7.7-7.3l1.6-.4.8 1.7z" stroke-width="1.6"/>'),
+  agenda:   svg('<rect class="f1" x="4" y="9.5" width="16" height="10.5" rx="1.5"/><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9.5h16M8.5 3v4M15.5 3v4"/><path class="s2" d="M15.6 12.4l.6 1.3 1.4.2-1 1 .2 1.4-1.2-.7-1.2.7.2-1.4-1-1 1.4-.2z" stroke-width="1.4"/>'),
+  instagram:svg('<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle class="s1" cx="12" cy="12" r="3.9"/><circle class="f2" cx="17" cy="7" r="1.2"/>'),
+  carta:    svg('<path class="f1" d="M7.6 8.7h8.8L12 13.4z"/><path d="M3.8 5.5h16.4L12 14.2z"/><path d="M12 14.2V20.5M8 20.5h8"/><path class="s2" d="M19.6 1.2v3.2M18 2.8h3.2"/>'),
+  link:     svg('<path d="M5 12h12M13 6l6 6-6 6"/><circle class="f1" cx="5" cy="12" r="1.6"/>')
+};
+
+/* ---------- UTILIDADES ---------- */
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const isTrue = v => v === true || /^(true|verdadero|s[ií]|x)$/i.test(String(v ?? '').trim());
+const key = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
+const cld = (url, t) => (/res\.cloudinary\.com\/.+\/upload\//.test(url) && !/\.svg(\?|$)/i.test(url)) ? url.replace('/upload/', `/upload/${t}/`) : url;
+/* solo links web, de WhatsApp o internos del sitio */
+const safeLink = u => { u = String(u || '').trim(); return /^(https?:\/\/|\/)/i.test(u) ? u : ''; };
+
+/* ---------- LECTURA DE LA PLANILLA ---------- */
+/* Se pide en CSV: así cada celda llega tal cual está escrita.
+   (En JSON, Google adivina un tipo por columna y descarta las celdas que no coinciden,
+   como la casilla de "En construcción" en una columna de textos.) */
+function parseCSV(t){
+  const rows = []; let row = [], cell = '', q = false;
+  for (let i = 0; i < t.length; i++){
+    const c = t[i];
+    if (q){
+      if (c === '"' && t[i+1] === '"'){ cell += '"'; i++; }
+      else if (c === '"') q = false;
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n' || c === '\r') { if (c === '\r' && t[i+1] === '\n') i++; row.push(cell); rows.push(row); row = []; cell = ''; }
+    else cell += c;
+  }
+  if (cell !== '' || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+async function fetchTab(name){
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&headers=1&sheet=${encodeURIComponent(name)}`;
+  const res = await fetch(url, {cache:'no-store'});
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const rows = parseCSV(await res.text());
+  const cols = (rows.shift() || []).map(c => c.trim());
+  /* si la pestaña no existe, Google devuelve la primera: se revisan los títulos */
+  return {cols, rows: rows.map(r => { const o = {}; cols.forEach((c, i) => { o[c] = (r[i] ?? '').trim(); }); return o; })};
+}
+
+async function loadLive(){
+  const [pagT, botT, marcaT] = await Promise.all([fetchTab('Página'), fetchTab('Botones'), fetchTab('Marca').catch(() => ({cols:[], rows:[]}))]);
+  if (!pagT.cols.includes('Dato') || !botT.cols.includes('Link')) throw new Error('pestañas sin los títulos esperados');
+  const pag = pagT.rows, bot = botT.rows, marca = marcaT.cols.includes('Link') ? marcaT.rows : [];
+  const P = {};
+  pag.forEach(r => { P[key(r['Dato'])] = r['Valor']; });
+  const out = {
+    construccion: isTrue(P['en construccion']),
+    titulo: String(P['titulo'] ?? '').trim(),
+    texto: String(P['texto'] ?? '').trim(),
+    botones: bot
+      .filter(r => String(r['Texto']).trim() && isTrue(r['Mostrar']) && safeLink(r['Link']))
+      .map(r => ({t:String(r['Texto']).trim(), d:String(r['Detalle'] || '').trim(), l:safeLink(r['Link']), i:key(r['Ícono']) || 'link'})),
+    img: {}
+  };
+  marca.forEach(r => {
+    const k = {'logo negativo':'logo', 'gato':'gato'}[key(r['Nombre'])];
+    const link = String(r['Link'] || '').trim();
+    if (k && /^https?:\/\//.test(link)) out.img[k] = link;
+  });
+  return out;
+}
+
+/* ---------- DIBUJO ---------- */
+function render(d){
+  if (!d) return;
+  if (d.titulo) document.getElementById('titulo').textContent = d.titulo;
+  if (d.texto) document.getElementById('texto').textContent = d.texto;
+  if (d.botones && d.botones.length){
+    document.getElementById('btns').innerHTML = d.botones.map(b => {
+      const ext = /^https?:/i.test(b.l);
+      return `<a class="btn" href="${esc(b.l)}"${ext ? ' target="_blank" rel="noopener"' : ''}>${ICONS[b.i] || ICONS.link}<span><b>${esc(b.t)}</b>${b.d ? `<small>${esc(b.d)}</small>` : ''}</span></a>`;
+    }).join('');
+  }
+  const img = {...IMG_DEFAULT, ...(d.img || {})};
+  const swap = (id, src) => { const el = document.getElementById(id); if (el && el.getAttribute('src') !== src){ const p = new Image(); p.onload = () => { el.src = src; }; p.src = src; } };
+  swap('logo', cld(img.logo, 'w_600,q_auto,f_auto'));
+  swap('catImg', cld(img.gato, 'w_320,q_auto,f_auto'));
+  /* cuando la landing exista, acá se decide qué mostrar con d.construccion */
+  if (LANDING_LISTA && !d.construccion) { /* mostrar la landing */ }
+}
+
+/* Botones de respaldo con sus íconos (los del HTML vienen sin ícono para que Google los lea limpios) */
+render({botones:[
+  {t:'Reservá por WhatsApp', d:'+54 9 11 5742-4161', l:'https://wa.me/5491157424161?text=Hola%20Ceniza%2C%20quiero%20reservar', i:'whatsapp'},
+  {t:'Agenda y shows', d:'Todas las funciones', l:'https://linktr.ee/espacioceniza', i:'agenda'},
+  {t:'Instagram', d:'@espacio_ceniza', l:'https://instagram.com/espacio_ceniza', i:'instagram'}
+]});
+
+/* ---------- ARRANQUE: lo guardado al instante, después la planilla ---------- */
+let shown = null;
+try { shown = JSON.parse(localStorage.getItem(CACHE_KEY)); render(shown); } catch(e){}
+loadLive().then(live => {
+  const s = JSON.stringify(live);
+  if (s !== JSON.stringify(shown)) render(live);
+  try { localStorage.setItem(CACHE_KEY, s); } catch(e){}
+}).catch(err => console.warn('Landing: usando textos guardados.', err.message));
+
+/* ---------- ENTRADA ----------
+   Arranca apenas está la página: el logo aparece y después el gato, el texto y los botones. */
+(function(){
+  const root = document.documentElement;
+  if (!root.classList.contains('intro')) return;
+  requestAnimationFrame(() => { root.classList.add('play'); setTimeout(() => root.classList.remove('intro','play'), 1300); });
+})();
+
+/* ---------- FOGÓN DE FONDO (el mismo del pie de la carta) ----------
+   Para que se lea como fuego y no como cielo estrellado:
+   - la ceniza nace abajo incandescente (naranja) y se enfría a gris mientras sube
+   - se apaga antes de llegar arriba: la mitad superior queda limpia
+   - humo suave que sube y se abre
+   - chispas de leña: rápidas, en ráfagas, zigzagueantes y de vida corta
+   Liviano: un canvas, corre solo con el pie en pantalla, se frena en segundo plano. */
+(function(){
+  const c = document.getElementById('ash');
+  if (!c || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const x = c.getContext('2d');
+  const HOT = [[255,101,55],[254,165,0],[200,40,30]];   /* naranja y amarillo de Ceniza + rojo brasa */
+  const COOL = [178,170,161];                           /* gris ceniza cálido */
+  let W = 0, H = 0, F = [], S = [], M = [], raf = null, visible = false, nextBurst = 0;
+
+  /* humo: un círculo difuso pre-dibujado que se reutiliza (barato) */
+  const puff = document.createElement('canvas'); puff.width = puff.height = 128;
+  (function(){ const g = puff.getContext('2d'), gr = g.createRadialGradient(64,64,0,64,64,64);
+    gr.addColorStop(0,'rgba(190,178,165,1)'); gr.addColorStop(1,'rgba(190,178,165,0)'); g.fillStyle = gr; g.fillRect(0,0,128,128); })();
+
+  function size(){
+    const r = c.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height; c.width = W * d; c.height = H * d; x.setTransform(d,0,0,d,0,0);
+  }
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function flake(start){
+    const r = rnd(1.4, 3.6), pts = [];
+    for (let i = 0; i < 5; i++){ const ang = i / 5 * 6.283 + rnd(0, .6); pts.push([Math.cos(ang) * r * rnd(.55, 1.15), Math.sin(ang) * r * rnd(.55, 1.15)]); }
+    const max = rnd(.35, .62) * H;              /* cuánto sube antes de apagarse */
+    return {x:rnd(0, W), y0:H + 6, y:H + 6, d:start ? rnd(0, max) : 0, max, pts,
+      rot:rnd(0, 6.28), spin:rnd(-.035, .035), v:rnd(.25, .55), ph:rnd(0, 6.28), sw:rnd(.4, 1),
+      hot:HOT[Math.floor(Math.random() * 3)], a:rnd(.55, .95)};
+  }
+  const smoke = start => ({x:rnd(.1, .9) * W, d:start ? rnd(0, H*.5) : 0, max:H * rnd(.4, .6), r:rnd(40, 70), v:rnd(.18, .32), a:rnd(.05, .085)});
+  /* chispa suelta, una por vez, que llega más alto */
+  function burst(){
+    S.push({x:rnd(.1, .9) * W, y:H - rnd(0, 10), px:0, py:0,
+      vx:rnd(-1.2, 1.2), vy:-rnd(6.5, 9.5), life:0, max:rnd(48, 75), r:rnd(1, 1.8), col:HOT[Math.floor(Math.random() * 3)]});
+  }
+  const mix = (h, k) => `${Math.round(h[0] + (COOL[0]-h[0])*k)},${Math.round(h[1] + (COOL[1]-h[1])*k)},${Math.round(h[2] + (COOL[2]-h[2])*k)}`;
+
+  let last = 0;
+  function tick(t){
+    /* k = cuántos cuadros de 60 Hz pasaron: en un iPhone de 120 Hz vale 0,5 y todo va a la misma velocidad */
+    const k = Math.min(3, last ? (t - last) / 16.667 : 1); last = t;
+    x.clearRect(0,0,W,H);
+    /* humo */
+    for (const m of M){
+      m.d += m.v * k; const q = m.d / m.max; if (q >= 1){ Object.assign(m, smoke(false)); continue; }
+      const r = m.r * (1 + q * 1.6), y = H - m.d, al = m.a * Math.sin(q * Math.PI);
+      x.globalAlpha = al; x.drawImage(puff, m.x + Math.sin(t/2200 + m.r) * 12 - r, y - r, r*2, r*2);
+    }
+    x.globalAlpha = 1;
+    /* ceniza: incandescente abajo, gris arriba, se apaga antes de la mitad */
+    for (const p of F){
+      p.v *= Math.pow(1.0015, k); p.d += p.v * k; const q = p.d / p.max;
+      if (q >= 1){ Object.assign(p, flake(false)); continue; }
+      p.y = p.y0 - p.d; p.x += Math.sin(t/1100 + p.ph) * p.sw * .35 * k; p.rot += p.spin * k;
+      const cool = Math.min(1, q / .35), al = p.a * (q < .1 ? q / .1 : 1 - Math.pow((q - .1) / .9, 1.4));
+      const cs = Math.cos(p.rot), sn = Math.sin(p.rot);
+      x.beginPath();
+      p.pts.forEach(([px, py], j) => { const X = p.x + px*cs - py*sn, Y = p.y + px*sn + py*cs; j ? x.lineTo(X, Y) : x.moveTo(X, Y); });
+      x.closePath(); x.fillStyle = `rgba(${mix(p.hot, cool)},${al})`; x.fill();
+    }
+    /* chispas de leña */
+    if (t > nextBurst){ burst(); nextBurst = t + rnd(260, 750); }
+    x.lineCap = 'round';
+    for (let i = S.length - 1; i >= 0; i--){
+      const p = S[i];
+      p.px = p.x; p.py = p.y; p.life += k;
+      p.vy += .05 * k; p.vx += rnd(-.4, .4) * k; p.vx *= Math.pow(.97, k); p.vy *= Math.pow(.99, k);   /* gravedad + zigzag */
+      p.x += p.vx * k; p.y += p.vy * k;
+      const al = 1 - p.life / p.max;
+      if (al <= 0 || p.y < 0){ S.splice(i, 1); continue; }
+      const [r, g, b] = p.col;
+      x.strokeStyle = `rgba(${r},${g},${b},${al * .85})`; x.lineWidth = p.r * 1.2;
+      x.beginPath(); x.moveTo(p.px - p.vx * 1.6, p.py - p.vy * 1.6); x.lineTo(p.x, p.y); x.stroke();   /* estela según velocidad */
+      x.beginPath(); x.arc(p.x, p.y, p.r * 3, 0, 6.283); x.fillStyle = `rgba(${r},${g},${b},${al * .2})`; x.fill();
+      x.beginPath(); x.arc(p.x, p.y, p.r * .8, 0, 6.283); x.fillStyle = `rgba(255,240,205,${al})`; x.fill();
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  function fill(){
+    const n = Math.max(50, Math.min(110, Math.round(W * H / 4200)));
+    F = []; for (let i = 0; i < n; i++) F.push(flake(true));
+    M = []; for (let i = 0; i < 7; i++) M.push(smoke(true));
+  }
+  const start = () => { if (!raf && visible && !document.hidden){ if (!F.length){ size(); fill(); } raf = requestAnimationFrame(tick); c.classList.add('on'); } };
+  const stop = () => { if (raf){ cancelAnimationFrame(raf); raf = null; } last = 0; };
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; visible ? start() : stop(); }).observe(c);
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+  window.addEventListener('resize', () => { size(); fill(); });
+})();
+</script>
+</body>
+</html>
